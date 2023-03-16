@@ -8,7 +8,7 @@ export const apiSlice = createApi({
   endpoints: (builder) => ({
     getTasks: builder.query({
       query: () => "/tasks",
-      transformResponse: (res) => res.sort((a, b) => b.date - a.date),
+      transformResponse: (res) => res.sort((a, b) => new Date(b.date) - new Date(a.date)),
       providesTags: ["todo"],
     }),
 

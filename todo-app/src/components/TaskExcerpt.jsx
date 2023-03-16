@@ -7,7 +7,7 @@ function TaskExcerpt({ task }) {
 
   const handleStatusChange = (status) => {
     updateTask({ ...task, status });
-    console.log(status);
+    //console.log(status);
   };
   return (
     <li className="list-group-item ">
