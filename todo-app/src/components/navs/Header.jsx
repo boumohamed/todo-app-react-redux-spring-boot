@@ -25,6 +25,15 @@ function Header() {
                   Home
                 </Link>
               </li>
+              <li className="nav-item">
+                <Link
+                  to="/deleted"
+                  className="nav-link active"
+                  aria-current="page"
+                >
+                  Deleted Tasks
+                </Link>
+              </li>
             </ul>
           </div>
         </div>

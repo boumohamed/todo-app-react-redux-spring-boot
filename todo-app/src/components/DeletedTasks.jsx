@@ -1,27 +1,25 @@
 import React from "react";
-import { useGetTasksQuery } from "../features/api/apiSlice";
-import AddTaskForm from "./AddTaskForm";
+import { useGetDeletedTasksQuery } from "../features/api/apiSlice";
 import TasksList from "./TasksList";
+import AddTaskForm from "./AddTaskForm";
 
-function Home() {
-  const message = "Today's Tasks"
+function DeletedTasks() {
+  const message = "Deleted Tasks";
   const {
     data: tasks,
     isLoading,
     isError,
     error,
-  } = useGetTasksQuery("getTasks");
+  } = useGetDeletedTasksQuery("getDeletedTasks");
   let content;
   if (isLoading) content = <p>Loading...</p>;
   else if (isError) content = <p>{error}</p>;
   else content = <TasksList tasks={tasks} message={message} />;
-
   return (
     <div>
-      <AddTaskForm />
       <div>{content}</div>;
     </div>
   );
 }
 
-export default Home;
+export default DeletedTasks;

@@ -1,5 +1,6 @@
 import { nanoid } from "@reduxjs/toolkit";
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { CANCELED, CREATED, DELETED } from "./TaskStatusTypes";
 
 export const apiSlice = createApi({
   reducerPath: "api", // optional
@@ -8,7 +9,23 @@ export const apiSlice = createApi({
   endpoints: (builder) => ({
     getTasks: builder.query({
       query: () => "/tasks",
-      transformResponse: (res) => res.sort((a, b) => new Date(b.date) - new Date(a.date)),
+      transformResponse: (res) => {
+        let sorted = res.sort((a, b) => new Date(b.date) - new Date(a.date));
+        let transformed = sorted.filter((t) => t.status !== DELETED);
+        return transformed;
+        //return sorted;
+      },
+      providesTags: ["todo"],
+    }),
+
+    getDeletedTasks: builder.query({
+      query: () => "/tasks",
+      transformResponse: (res) => {
+        let sorted = res.sort((a, b) => new Date(b.date) - new Date(a.date));
+        let transformed = sorted.filter((t) => t.status === DELETED);
+        return transformed;
+        //return sorted;
+      },
       providesTags: ["todo"],
     }),
 
@@ -38,5 +55,9 @@ export const apiSlice = createApi({
     }),
   }),
 });
-export const { useGetTasksQuery, useAddTaskMutation, useUpdateTaskMutation } =
-  apiSlice;
+export const {
+  useGetTasksQuery,
+  useAddTaskMutation,
+  useUpdateTaskMutation,
+  useGetDeletedTasksQuery,
+} = apiSlice;

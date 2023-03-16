@@ -1,8 +1,15 @@
 import React from "react";
 import { Row, Col } from "react-bootstrap";
 import { useUpdateTaskMutation } from "../features/api/apiSlice";
-import { CANCELED, COMPLETED, CREATED } from "../features/api/TaskStatusTypes";
-function TaskExcerpt({ task }) {
+import {
+  CANCELED,
+  COMPLETED,
+  CREATED,
+  DELETED,
+  RESTORED,
+} from "../features/api/TaskStatusTypes";
+import TimeAgo from "./shared/TimeAgo";
+function TaskExcerpt({ task, isDelete }) {
   const [updateTask, { isLoading }] = useUpdateTaskMutation();
 
   const handleStatusChange = (status) => {
@@ -14,6 +21,7 @@ function TaskExcerpt({ task }) {
       <Row>
         <Col>
           <div className="fw-bold">{task.name}</div>
+          <TimeAgo timestamp={task.date} />
         </Col>
         <Col>
           {isLoading ? (
@@ -25,7 +33,11 @@ function TaskExcerpt({ task }) {
                   ? "badge bg-secondary"
                   : task.status === CANCELED
                   ? "badge bg-warning"
-                  : "badge bg-success"
+                  : task.status === COMPLETED
+                  ? "badge bg-success"
+                  : task.status === RESTORED
+                  ? "badge bg-info"
+                  : "badge bg-danger"
               }
             >
               {task.status}
@@ -33,20 +45,39 @@ function TaskExcerpt({ task }) {
           )}
         </Col>
         <Col>
-          <button
-            type="button"
-            className="btn btn-success mx-2"
-            onClick={() => handleStatusChange(COMPLETED)}
-          >
-            Completed
-          </button>
-          <button
-            type="button"
-            className="btn btn-warning"
-            onClick={() => handleStatusChange(CANCELED)}
-          >
-            Canceled
-          </button>
+          {!isDelete ? (
+            <>
+              <button
+                type="button"
+                className="btn btn-success mx-2"
+                onClick={() => handleStatusChange(COMPLETED)}
+              >
+                Completed
+              </button>
+              <button
+                type="button"
+                className="btn btn-warning"
+                onClick={() => handleStatusChange(CANCELED)}
+              >
+                Canceled
+              </button>
+              <button
+                type="button"
+                className="btn btn-danger mx-2"
+                onClick={() => handleStatusChange(DELETED)}
+              >
+                Delete
+              </button>
+            </>
+          ) : (
+            <button
+              type="button"
+              className="btn btn-secondary mx-2"
+              onClick={() => handleStatusChange(RESTORED)}
+            >
+              Restore
+            </button>
+          )}
         </Col>
       </Row>
     </li>
