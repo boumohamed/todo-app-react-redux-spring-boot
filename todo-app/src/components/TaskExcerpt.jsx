@@ -17,7 +17,7 @@ function TaskExcerpt({ task, isDelete }) {
     <li className="list-group-item ">
       <Row>
         <Col sm={2}>
-          <Link className="btn btn-outline-secondary" to={`${task.id}`}>
+          <Link className="btn btn-outline-secondary" to={`/${task.id}`}>
             <i className="fa-solid fa-info"></i>
           </Link>
         </Col>

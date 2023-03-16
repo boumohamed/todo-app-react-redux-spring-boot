@@ -6,7 +6,9 @@ function Header() {
     <div className="text-center text-primay">
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container-fluid">
-          <a className="navbar-brand">BzrDo</a>
+          <Link to={"/"} className="navbar-brand">
+            BzrDo
+          </Link>
           <button
             className="navbar-toggler"
             type="button"
@@ -26,11 +28,7 @@ function Header() {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link
-                  to="/deleted"
-                  className="nav-link active"
-                  aria-current="page"
-                >
+                <Link to="/deleted" className="nav-link" aria-current="page">
                   Deleted Tasks
                 </Link>
               </li>
