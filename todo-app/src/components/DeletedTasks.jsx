@@ -1,7 +1,6 @@
 import React from "react";
 import { useGetDeletedTasksQuery } from "../features/api/apiSlice";
 import TasksList from "./TasksList";
-import AddTaskForm from "./AddTaskForm";
 
 function DeletedTasks() {
   const message = "Deleted Tasks";
