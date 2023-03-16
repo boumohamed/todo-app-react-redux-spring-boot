@@ -29,6 +29,11 @@ export const apiSlice = createApi({
       providesTags: ["todo"],
     }),
 
+    getTaskById: builder.query({
+      query: (id) => `/tasks/${id}`,
+      providesTags: ["todo"],
+    }),
+
     addTask: builder.mutation({
       query: (task) => ({
         url: "/tasks",
@@ -60,4 +65,5 @@ export const {
   useAddTaskMutation,
   useUpdateTaskMutation,
   useGetDeletedTasksQuery,
+  useGetTaskByIdQuery,
 } = apiSlice;

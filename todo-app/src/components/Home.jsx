@@ -10,7 +10,7 @@ function Home() {
     isLoading,
     isError,
     error,
-  } = useGetTasksQuery("getTasks");
+  } = useGetTasksQuery();
   let content;
   if (isLoading) content = <p>Loading...</p>;
   else if (isError) content = <p>{error}</p>;
