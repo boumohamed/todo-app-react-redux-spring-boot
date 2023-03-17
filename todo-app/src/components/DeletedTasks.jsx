@@ -26,7 +26,7 @@ function DeletedTasks() {
         tasks={tasks}
         message={message}
         keyword={keyword}
-        status={""}
+        status=""
       />
     );
   return (
