@@ -1,6 +1,6 @@
 import { nanoid } from "@reduxjs/toolkit";
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { CANCELED, CREATED, DELETED } from "./TaskStatusTypes";
+import { CREATED, DELETED } from "./TaskStatusTypes";
 
 export const apiSlice = createApi({
   reducerPath: "api", // optional
@@ -42,7 +42,7 @@ export const apiSlice = createApi({
           ...task,
           id: nanoid(),
           date: new Date(),
-          status: "CREATED",
+          status: CREATED,
         },
       }),
       invalidatesTags: ["todo"],

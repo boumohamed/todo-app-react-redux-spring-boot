@@ -27,7 +27,6 @@ public class TaskController {
     {
         return ts.creatTask(task);
     }
-
     @PutMapping("/tasks/{id}")
     public Task updateTask(@RequestBody Task task, @PathVariable String id) throws InterruptedException {
         //Thread.sleep(10000L);

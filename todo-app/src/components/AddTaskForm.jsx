@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useAddTaskMutation } from "../features/api/apiSlice";
 
 function AddTaskForm() {
-  const [addTask, { isLoading }] = useAddTaskMutation();
+  const [addTask, { isLoading, isError, error }] = useAddTaskMutation();
 
   const [name, setName] = useState("");
   const [desc, setDesc] = useState("");
@@ -40,6 +40,7 @@ function AddTaskForm() {
         </button>
       </form>
       {isLoading ? <p className="text-center text-info">Adding Task...</p> : ""}
+      {isError ? <p className="text-center text-danger">{error.error}</p> : ""}
     </div>
   );
 }

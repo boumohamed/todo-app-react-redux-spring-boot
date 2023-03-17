@@ -3,6 +3,7 @@ import {
   CANCELED,
   COMPLETED,
   CREATED,
+  DELETED,
   RESTORED,
 } from "../../features/api/TaskStatusTypes";
 
@@ -18,7 +19,9 @@ function DisplayStatus({ status }) {
           ? "badge bg-success"
           : status === RESTORED
           ? "badge bg-info"
-          : "badge bg-danger"
+          : status === DELETED
+          ? "badge bg-danger"
+          : "badge bg-primary"
       }
     >
       {status}
