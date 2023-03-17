@@ -28,6 +28,9 @@ export default function TasksList({ tasks, message, keyword, status }) {
   return (
     <>
       <h4 className="bg-light p-2 border-top border-bottom">{message}</h4>
+      <h5 className="bg-light p-2 border-top border-bottom">
+        {filterTasks.length} {filterTasks.length > 1 ? "Tasks" : "Task"}
+      </h5>
       <ul className="list-group list-group-light ">
         {filterTasks &&
           filterTasks.map((t) => (
