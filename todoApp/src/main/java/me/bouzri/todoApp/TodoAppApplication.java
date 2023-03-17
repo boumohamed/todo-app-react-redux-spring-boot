@@ -7,6 +7,7 @@ import me.bouzri.todoApp.services.TaskService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.Bean;
 
 import java.util.Date;
@@ -15,13 +16,14 @@ import java.util.stream.Stream;
 
 @SpringBootApplication
 @AllArgsConstructor
+@EnableFeignClients
 public class TodoAppApplication {
 
 	private TaskService ts;
 	public static void main(String[] args) {
 		SpringApplication.run(TodoAppApplication.class, args);
 	}
-	@Bean
+	//@Bean
 	CommandLineRunner start()
 	{
 		return (args) -> {

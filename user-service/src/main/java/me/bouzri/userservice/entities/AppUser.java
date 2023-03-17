@@ -1,25 +1,25 @@
-package me.bouzri.todoApp.entities;
+package me.bouzri.userservice.entities;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.Transient;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import me.bouzri.todoApp.enums.Status;
+import me.bouzri.userservice.models.Task;
 
-import java.util.Date;
+import java.util.List;
 
-@Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class Task {
-
+@Entity
+public class AppUser {
     @Id
     private String id;
     private String name;
-    private String desc;
-    private Date date;
-    private Status status;
-    private String userid;
+    private  String email;
+
+    @Transient
+    private List<Task> tasks;
 }

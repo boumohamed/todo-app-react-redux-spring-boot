@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 
 function Search({ search, status, isDelete }) {
   let content;
-  console.log(isDelete)
+  //console.log(isDelete)
   if (isDelete) {
     content = (
       <Row>

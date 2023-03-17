@@ -11,6 +11,7 @@ public interface TaskService {
     Task creatTask(Task taskRequestDto);
     List<Task> getTasks();
 
+    List<Task> gatTasksByuser(String id);
     Task getTaskById(String id);
 
     Task updateTask(String id, Task task);

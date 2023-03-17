@@ -2,12 +2,14 @@ import React, { useState } from "react";
 import { useGetTasksQuery } from "../features/api/apiSlice";
 import AddTaskForm from "./AddTaskForm";
 import Search from "./shared/Search";
+
 import TasksList from "./TasksList";
 
 function Home() {
   const message = "Today's Tasks";
   const [keyword, setKeyWord] = useState("");
   const [status, setStatus] = useState("");
+
   const { data: tasks, isLoading, isError, error } = useGetTasksQuery();
 
   const search = (e) => {
@@ -35,7 +37,8 @@ function Home() {
     <div>
       <AddTaskForm />
       <Search search={search} status={handleStatusFilter} />
-      <div>{content}</div>;
+
+      <div>{content}</div>
     </div>
   );
 }
