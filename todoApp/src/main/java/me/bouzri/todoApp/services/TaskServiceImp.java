@@ -23,8 +23,8 @@ public class TaskServiceImp implements TaskService {
 
     @Override
     public List<Task> getTasks() {
-        List<Task> all = tr.findAll();
-        return all;
+        List<Task> allTasks = tr.findAll();
+        return allTasks;
     }
 
     @Override
