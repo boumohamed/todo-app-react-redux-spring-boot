@@ -2,9 +2,12 @@ package me.bouzri.todoApp.services;
 
 
 import me.bouzri.todoApp.entities.Task;
+import me.bouzri.todoApp.enums.Status;
+import org.springframework.boot.autoconfigure.mail.MailProperties;
 
 
 import java.util.List;
+import java.util.Map;
 
 
 public interface TaskService {
@@ -15,5 +18,6 @@ public interface TaskService {
     Task getTaskById(String id);
 
     Task updateTask(String id, Task task);
+    Map<Status, Long> groupByStatus();
 
 }

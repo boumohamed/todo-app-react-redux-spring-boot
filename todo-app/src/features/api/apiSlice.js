@@ -34,6 +34,11 @@ export const apiSlice = createApi({
       providesTags: ["todo"],
     }),
 
+    grouptasksByStatus: builder.query({
+      query: () => "/tasks/groupby/status",
+      providesTags: ["todo"],
+    }),
+
     addTask: builder.mutation({
       query: (task) => ({
         url: "/tasks",
@@ -66,4 +71,5 @@ export const {
   useUpdateTaskMutation,
   useGetDeletedTasksQuery,
   useGetTaskByIdQuery,
+  useGrouptasksByStatusQuery
 } = apiSlice;

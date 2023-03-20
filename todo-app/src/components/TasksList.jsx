@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-
+import { Card, Metric } from "@tremor/react";
 import TaskExcerpt from "./TaskExcerpt";
 
 export default function TasksList({ tasks, message, keyword, status }) {
@@ -29,7 +29,11 @@ export default function TasksList({ tasks, message, keyword, status }) {
     <>
       <h4 className="bg-light p-2 border-top border-bottom">{message}</h4>
       <h5 className="bg-light p-2 border-top border-bottom">
-        {filterTasks.length} {filterTasks.length > 1 ? "Tasks" : "Task"}
+        <Card className="max-w-xs mx-auto">
+          <Metric>
+            {filterTasks.length} {filterTasks.length > 1 ? "Tasks" : "Task"}
+          </Metric>
+        </Card>
       </h5>
       <ul className="list-group list-group-light ">
         {filterTasks &&

@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useGetTasksQuery } from "../features/api/apiSlice";
 import AddTaskForm from "./AddTaskForm";
 import Search from "./shared/Search";
-
 import TasksList from "./TasksList";
 
 function Home() {
@@ -34,12 +33,11 @@ function Home() {
     );
 
   return (
-    <div>
+    <>
       <AddTaskForm />
       <Search search={search} status={handleStatusFilter} />
-
-      <div>{content}</div>
-    </div>
+      {content}
+    </>
   );
 }
 

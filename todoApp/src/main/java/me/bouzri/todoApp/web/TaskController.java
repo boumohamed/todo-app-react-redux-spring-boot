@@ -2,10 +2,12 @@ package me.bouzri.todoApp.web;
 
 import lombok.AllArgsConstructor;
 import me.bouzri.todoApp.entities.Task;
+import me.bouzri.todoApp.enums.Status;
 import me.bouzri.todoApp.services.TaskService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @AllArgsConstructor
@@ -22,6 +24,11 @@ public class TaskController {
     public List<Task> getTaskByUserId(@PathVariable String id){
         System.out.println(id);
         return ts.gatTasksByuser(id);
+    }
+
+    @GetMapping("/tasks/groupby/status")
+    public Map<Status, Long> groupByStatus(){
+        return ts.groupByStatus();
     }
     @GetMapping("/tasks/{id}")
     public Task getTask(@PathVariable String id){
