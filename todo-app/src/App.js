@@ -8,6 +8,7 @@ import TaskPage from "./components/TaskPage";
 import Users from "./components/Users";
 import UserPage from "./components/UserPage";
 import TaskOfUsers from "./components/TaskOfUsers";
+import CreateUser from "./components/shared/CreateUser";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="users">
           <Route index element={<Users />}></Route>
           <Route path="tasks" element={<TaskOfUsers />} />
+          <Route path="add" element={<CreateUser />} />
           <Route path=":id" element={<UserPage />} />
         </Route>
         <Route path="deleted" element={<DeletedTasks />} />

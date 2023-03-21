@@ -10,7 +10,7 @@ import TimeAgo from "./shared/TimeAgo";
 
 function TaskExcerpt({ task, isDelete }) {
   const [updateTask, { isLoading }] = useUpdateTaskMutation();
-  console.log(task)
+  //console.log(task)
   const handleStatusChange = (status) => {
     updateTask({ ...task, status });
   };

@@ -1,3 +1,4 @@
+import { nanoid } from "@reduxjs/toolkit";
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 export const userSlice = createApi({
   reducerPath: "users",
@@ -13,7 +14,19 @@ export const userSlice = createApi({
       query: (id) => `/users/${id}`,
       providesTags: ["users"],
     }),
+    addUser: builder.mutation({
+      query: (user) => ({
+        url: "/users",
+        method: "POST",
+        body: {
+          ...user,
+          id: nanoid(),
+        },
+      }),
+      invalidatesTags: ["todo"],
+    }),
   }),
 });
 
-export const { useGetUsersQuery, useGetUserByIdQuery } = userSlice;
+export const { useGetUsersQuery, useGetUserByIdQuery, useAddUserMutation } =
+  userSlice;

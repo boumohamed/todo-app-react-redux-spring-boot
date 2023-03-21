@@ -13,6 +13,8 @@ function AddTaskForm() {
     e.preventDefault();
     if (userId !== "0") addTask({ name, desc, userid: userId });
     //console.log("submitted", name, desc, userId);
+    setName("");
+    setDesc("");
   };
   return (
     <div>
