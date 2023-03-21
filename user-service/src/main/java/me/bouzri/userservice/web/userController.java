@@ -2,6 +2,7 @@ package me.bouzri.userservice.web;
 
 import lombok.AllArgsConstructor;
 import me.bouzri.userservice.data.entities.AppUser;
+import me.bouzri.userservice.services.dtos.UserDto;
 import me.bouzri.userservice.services.interfaces.userService;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,13 +19,13 @@ public class userController {
 
 
     @GetMapping("/users")
-    public List<AppUser> getUsers()
+    public List<UserDto> getUsers()
     {
         return us.getUsers();
     }
 
     @GetMapping("/users/{id}")
-    public AppUser getUserById(@PathVariable String id)
+    public UserDto getUserById(@PathVariable String id)
     {
         return us.getUserById(id);
     }

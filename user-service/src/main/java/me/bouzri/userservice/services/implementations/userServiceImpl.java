@@ -1,34 +1,47 @@
 package me.bouzri.userservice.services.implementations;
 
 import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import me.bouzri.userservice.data.entities.AppUser;
 import me.bouzri.userservice.data.repositories.UserRepository;
+import me.bouzri.userservice.services.dtos.UserDto;
 import me.bouzri.userservice.services.interfaces.userService;
+import me.bouzri.userservice.services.mappers.UserMapper;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@AllArgsConstructor
+@RequiredArgsConstructor
 @Service
 public class userServiceImpl implements userService {
 
-    private UserRepository ur;
+    private final UserRepository ur;
+    private final UserMapper mapper;
 
 
 
 
     @Override
-    public AppUser getUserById(String id) {
-        return ur.findById(id).orElseThrow(() -> new RuntimeException("No User Found"));
+    public UserDto getUserById(String id) {
+        AppUser user = ur.findById(id).orElseThrow(() -> new RuntimeException("No User Found"));
+        UserDto userDto = mapper.fromUserToUserDto(user);
+        return userDto;
     }
 
     @Override
-    public List<AppUser> getUsers() {
-        return ur.findAll();
+    public List<UserDto> getUsers() {
+
+        List<AppUser> allUsers = ur.findAll();
+        List<UserDto> userDtos = mapper.fromUserListToUserDtoList(allUsers);
+
+        return userDtos;
     }
 
     @Override
-    public AppUser saveUser(AppUser user) {
-        return ur.save(user);
+    public UserDto saveUser(AppUser user) {
+
+        AppUser save = ur.save(user);
+        UserDto userDto = mapper.fromUserToUserDto(save);
+        return userDto;
     }
 }

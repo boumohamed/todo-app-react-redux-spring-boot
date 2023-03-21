@@ -3,12 +3,14 @@ package me.bouzri.userservice.services.mappers;
 import me.bouzri.userservice.data.entities.AppUser;
 import me.bouzri.userservice.services.dtos.UserDto;
 import org.mapstruct.Mapper;
-import org.mapstruct.factory.Mappers;
 
 
-@Mapper
+import java.util.List;
+
+
+// componentModel = "spring" => this was necessary to create a bean
+@Mapper(componentModel = "spring")
 public interface UserMapper {
-
-    UserMapper INSTANCE = Mappers.getMapper(UserMapper.class);
     UserDto fromUserToUserDto(AppUser user);
+    List<UserDto> fromUserListToUserDtoList(List<AppUser> users);
 }

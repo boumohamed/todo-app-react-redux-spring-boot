@@ -1,13 +1,14 @@
 package me.bouzri.userservice.services.interfaces;
 
 import me.bouzri.userservice.data.entities.AppUser;
+import me.bouzri.userservice.services.dtos.UserDto;
 
 import java.util.List;
 
 public interface userService {
 
-    AppUser getUserById(String id);
-    List<AppUser> getUsers();
+    UserDto getUserById(String id);
+    List<UserDto> getUsers();
 
-    AppUser saveUser(AppUser user);
+    UserDto saveUser(AppUser user);
 }
