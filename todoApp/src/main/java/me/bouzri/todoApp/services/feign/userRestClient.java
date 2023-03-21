@@ -1,4 +1,4 @@
-package me.bouzri.todoApp.feign;
+package me.bouzri.todoApp.services.feign;
 
 import me.bouzri.todoApp.models.AppUser;
 import org.springframework.cloud.openfeign.FeignClient;

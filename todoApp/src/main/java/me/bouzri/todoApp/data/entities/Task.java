@@ -1,4 +1,4 @@
-package me.bouzri.todoApp.entities;
+package me.bouzri.todoApp.data.entities;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;

@@ -1,14 +1,13 @@
 package me.bouzri.todoApp;
 
 import lombok.AllArgsConstructor;
-import me.bouzri.todoApp.entities.Task;
+import me.bouzri.todoApp.data.entities.Task;
 import me.bouzri.todoApp.enums.Status;
-import me.bouzri.todoApp.services.TaskService;
+import me.bouzri.todoApp.services.interfaces.TaskService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.openfeign.EnableFeignClients;
-import org.springframework.context.annotation.Bean;
 
 import java.util.Date;
 import java.util.UUID;

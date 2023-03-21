@@ -1,4 +1,4 @@
-package me.bouzri.todoApp.dtos;
+package me.bouzri.todoApp.services.dtos;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

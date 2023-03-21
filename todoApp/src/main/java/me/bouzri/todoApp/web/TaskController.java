@@ -1,9 +1,9 @@
 package me.bouzri.todoApp.web;
 
 import lombok.AllArgsConstructor;
-import me.bouzri.todoApp.entities.Task;
+import me.bouzri.todoApp.data.entities.Task;
 import me.bouzri.todoApp.enums.Status;
-import me.bouzri.todoApp.services.TaskService;
+import me.bouzri.todoApp.services.interfaces.TaskService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

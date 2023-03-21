@@ -1,9 +1,8 @@
-package me.bouzri.todoApp.services;
+package me.bouzri.todoApp.services.interfaces;
 
 
-import me.bouzri.todoApp.entities.Task;
+import me.bouzri.todoApp.data.entities.Task;
 import me.bouzri.todoApp.enums.Status;
-import org.springframework.boot.autoconfigure.mail.MailProperties;
 
 
 import java.util.List;

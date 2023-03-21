@@ -1,6 +1,6 @@
-package me.bouzri.todoApp.repositories;
+package me.bouzri.todoApp.data.repositories;
 
-import me.bouzri.todoApp.entities.Task;
+import me.bouzri.todoApp.data.entities.Task;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
