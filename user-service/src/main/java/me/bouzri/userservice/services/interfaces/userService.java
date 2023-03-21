@@ -1,6 +1,6 @@
-package me.bouzri.userservice.services;
+package me.bouzri.userservice.services.interfaces;
 
-import me.bouzri.userservice.entities.AppUser;
+import me.bouzri.userservice.data.entities.AppUser;
 
 import java.util.List;
 

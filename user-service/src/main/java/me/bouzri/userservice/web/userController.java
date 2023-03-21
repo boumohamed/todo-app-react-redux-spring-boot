@@ -1,8 +1,8 @@
 package me.bouzri.userservice.web;
 
 import lombok.AllArgsConstructor;
-import me.bouzri.userservice.entities.AppUser;
-import me.bouzri.userservice.services.userService;
+import me.bouzri.userservice.data.entities.AppUser;
+import me.bouzri.userservice.services.interfaces.userService;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

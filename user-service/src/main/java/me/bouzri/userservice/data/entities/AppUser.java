@@ -1,11 +1,9 @@
-package me.bouzri.userservice.entities;
+package me.bouzri.userservice.data.entities;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Transient;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import me.bouzri.userservice.models.Task;
 
 import java.util.List;
@@ -22,4 +20,6 @@ public class AppUser {
 
     @Transient
     private List<Task> tasks;
+
+
 }

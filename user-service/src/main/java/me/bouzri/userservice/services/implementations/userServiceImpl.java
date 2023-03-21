@@ -1,8 +1,9 @@
-package me.bouzri.userservice.services;
+package me.bouzri.userservice.services.implementations;
 
 import lombok.AllArgsConstructor;
-import me.bouzri.userservice.entities.AppUser;
-import me.bouzri.userservice.repositories.UserRepository;
+import me.bouzri.userservice.data.entities.AppUser;
+import me.bouzri.userservice.data.repositories.UserRepository;
+import me.bouzri.userservice.services.interfaces.userService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -12,6 +13,8 @@ import java.util.List;
 public class userServiceImpl implements userService {
 
     private UserRepository ur;
+
+
 
 
     @Override

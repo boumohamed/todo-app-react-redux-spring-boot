@@ -1,8 +1,8 @@
 package me.bouzri.userservice;
 
 import lombok.AllArgsConstructor;
-import me.bouzri.userservice.entities.AppUser;
-import me.bouzri.userservice.services.userService;
+import me.bouzri.userservice.data.entities.AppUser;
+import me.bouzri.userservice.services.interfaces.userService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
