@@ -5,6 +5,7 @@ import lombok.RequiredArgsConstructor;
 import me.bouzri.userservice.data.entities.AppUser;
 import me.bouzri.userservice.data.repositories.UserRepository;
 import me.bouzri.userservice.services.dtos.UserDto;
+import me.bouzri.userservice.services.dtos.UserRequestDto;
 import me.bouzri.userservice.services.interfaces.userService;
 import me.bouzri.userservice.services.mappers.UserMapper;
 import org.springframework.stereotype.Service;
@@ -38,10 +39,10 @@ public class userServiceImpl implements userService {
     }
 
     @Override
-    public UserDto saveUser(AppUser user) {
-
-        AppUser save = ur.save(user);
-        UserDto userDto = mapper.fromUserToUserDto(save);
+    public UserDto saveUser(UserRequestDto requestDto) {
+        AppUser userToSave = mapper.fromUserRequestDtoToUserEntity(requestDto);
+        AppUser saved = ur.save(userToSave);
+        UserDto userDto = mapper.fromUserToUserDto(saved);
         return userDto;
     }
 }

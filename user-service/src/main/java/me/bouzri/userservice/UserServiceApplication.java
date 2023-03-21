@@ -2,6 +2,7 @@ package me.bouzri.userservice;
 
 import lombok.AllArgsConstructor;
 import me.bouzri.userservice.data.entities.AppUser;
+import me.bouzri.userservice.services.dtos.UserRequestDto;
 import me.bouzri.userservice.services.interfaces.userService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -28,11 +29,11 @@ public class UserServiceApplication {
 
 			Stream.of("Mohamed", "Amina", "Ali").forEach(name -> {
 
-				AppUser user = new AppUser();
-				user.setId(UUID.randomUUID().toString());
-				user.setName(name);
-				user.setEmail(name.toLowerCase() + "@gmail.com");
-				us.saveUser(user);
+				UserRequestDto requestDto = new UserRequestDto();
+				requestDto.setId(UUID.randomUUID().toString());
+				requestDto.setName(name);
+				requestDto.setEmail(name.toLowerCase() + "@gmail.com");
+				us.saveUser(requestDto);
 			});
 		};
 	}
