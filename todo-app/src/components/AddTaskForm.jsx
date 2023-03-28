@@ -19,40 +19,56 @@ function AddTaskForm() {
   return (
     <div>
       <form onSubmit={hanadleSubmit}>
-        <div className="form-outline mb-1">
+        <div>
+          <select
+            name="country"
+            onChange={(e) => {
+              setUserId(e.target.value);
+            }}
+            class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+          >
+            <UsersOptions />
+          </select>
+        </div>
+
+        <div>
+          <label for="name" className="sr-only">
+            Name
+          </label>
           <input
+            id="name"
+            name="name"
             type="text"
-            id="form1Example1"
-            className="form-control"
-            placeholder="Task Name"
+            required
+            className="relative block w-full rounded-b-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset p-2 my-1 focus:ring-indigo-600 sm:text-sm sm:leading-6"
+            placeholder="Name"
             value={name}
             onChange={(e) => {
               setName(e.target.value);
             }}
           />
         </div>
-
-        <div className="form-outline mb-1">
+        <div>
+          <label for="desc" className="sr-only">
+            Description
+          </label>
           <textarea
-            id="form1Example2"
-            className="form-control"
-            placeholder="Task Description"
+            id="desc"
+            type="text"
+            required
+            className="relative block w-full rounded-b-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset p-2 my-1 focus:ring-indigo-600 sm:text-sm sm:leading-6"
+            placeholder="Description"
             value={desc}
-            onChange={(e) => setDesc(e.target.value)}
+            onChange={(e) => {
+              setDesc(e.target.value);
+            }}
           />
         </div>
-        <div className="form-outline mb-1">
-          <select
-            className="form-select"
-            onChange={(e) => {
-              setUserId(e.target.value);
-            }}
-            aria-label="Default select example"
-          >
-            <UsersOptions />
-          </select>
-        </div>
-        <button type="submit" className="btn btn-outline-success btn-block m-4">
+
+        <button
+          type="submit"
+          className="focus:outline-none text-white bg-green-700 hover:bg-green-800 hover:-rotate-3 focus:ring-4 focus:ring-green-300 font-semibold rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
+        >
           Add Task
         </button>
       </form>
