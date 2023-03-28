@@ -1,7 +1,11 @@
 import React from "react";
 
 function UserPage() {
-  return <div>User Page</div>;
+  return (
+    <>
+      <h1>user Page !</h1>
+    </>
+  );
 }
 
 export default UserPage;

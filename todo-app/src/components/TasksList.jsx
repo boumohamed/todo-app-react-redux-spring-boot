@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { Card, Metric } from "@tremor/react";
 import TaskExcerpt from "./TaskExcerpt";
 
 export default function TasksList({ tasks, message, keyword, status }) {
@@ -27,14 +26,17 @@ export default function TasksList({ tasks, message, keyword, status }) {
 
   return (
     <>
-      <h4 className="bg-light p-2 border-top border-bottom">{message}</h4>
-      <h5 className="bg-light p-2 border-top border-bottom">
-        <Card className="max-w-xs mx-auto">
-          <Metric>
-            {filterTasks.length} {filterTasks.length > 1 ? "Tasks" : "Task"}
-          </Metric>
-        </Card>
-      </h5>
+      <h4 className="bg-light p-2 border-top border-bottom font-semibold">
+        {message}
+      </h4>
+      <div className="mx-auto flex max-w-xs flex-col gap-y-4 my-2 shadow-2xl">
+        <dt className="text-base leading-7 text-gray-600">
+          {filterTasks.length > 1 ? "Tasks" : "Task"}
+        </dt>
+        <dd className="order-first text-3xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
+          {filterTasks.length}
+        </dd>
+      </div>
       <ul className="list-group list-group-light ">
         {filterTasks &&
           filterTasks.map((t) => (

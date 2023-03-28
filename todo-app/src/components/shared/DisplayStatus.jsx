@@ -12,16 +12,16 @@ function DisplayStatus({ status }) {
     <span
       className={
         status === CREATED
-          ? "badge bg-secondary"
+          ? "badge bg-secondary hover:-rotate-2 C text-xs"
           : status === CANCELED
-          ? "badge bg-warning"
+          ? "badge bg-warning hover:-rotate-2 font-semibold text-xs"
           : status === COMPLETED
-          ? "badge bg-success"
+          ? "badge bg-success hover:-rotate-2 font-semibold text-xs"
           : status === RESTORED
-          ? "badge bg-info"
+          ? "badge bg-info hover:-rotate-2 font-semibold text-xs"
           : status === DELETED
-          ? "badge bg-danger"
-          : "badge bg-primary"
+          ? "badge bg-danger hover:-rotate-2 font-semibold text-xs"
+          : "badge bg-primary hover:-rotate-2 font-semibold text-xs"
       }
     >
       {status}

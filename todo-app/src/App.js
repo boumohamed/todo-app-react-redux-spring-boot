@@ -2,7 +2,7 @@ import "./App.css";
 import { Routes, Route, Navigate } from "react-router-dom";
 import Layout from "./components/Layout";
 import Hello from "./components/Home";
-import NotFound from "./components/NotFound";
+//import NotFound from "./components/NotFound";
 import DeletedTasks from "./components/DeletedTasks";
 import TaskPage from "./components/TaskPage";
 import Users from "./components/Users";
@@ -17,9 +17,11 @@ function App() {
         <Route index element={<Hello />} />
         <Route path="users">
           <Route index element={<Users />}></Route>
-          <Route path="tasks" element={<TaskOfUsers />} />
           <Route path="add" element={<CreateUser />} />
-          <Route path=":id" element={<UserPage />} />
+          <Route path=":id">
+            <Route index element={<UserPage />}></Route>
+            <Route path="tasks" element={<TaskOfUsers />} />
+          </Route>
         </Route>
         <Route path="deleted" element={<DeletedTasks />} />
         <Route path=":id" element={<TaskPage />} />

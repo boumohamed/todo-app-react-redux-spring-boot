@@ -19,7 +19,7 @@ function TaskPage() {
   else if (isError) content = <p className="text-danger">{error}</p>;
   else
     content = (
-      <div className="card">
+      <div className="card shadow-2xl h-full justify-center font-serif ">
         <div className="card-body">
           <h5 className="card-title">
             {task.name} is {task.status}

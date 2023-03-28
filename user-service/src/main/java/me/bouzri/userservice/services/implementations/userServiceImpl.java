@@ -26,6 +26,8 @@ public class userServiceImpl implements userService {
     public UserDto getUserById(String id) {
         AppUser user = ur.findById(id).orElseThrow(() -> new RuntimeException("No User Found"));
         UserDto userDto = mapper.fromUserToUserDto(user);
+        System.out.println(user);
+        System.out.println(userDto);
         return userDto;
     }
 
@@ -34,6 +36,7 @@ public class userServiceImpl implements userService {
 
         List<AppUser> allUsers = ur.findAll();
         List<UserDto> userDtos = mapper.fromUserListToUserDtoList(allUsers);
+
 
         return userDtos;
     }

@@ -8,6 +8,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.openfeign.EnableFeignClients;
+import org.springframework.context.annotation.Bean;
 
 import java.util.Date;
 import java.util.UUID;
@@ -30,7 +31,7 @@ public class TodoAppApplication {
 			Stream.of("Sport", "Bearkfast", "Work", "Lunch", "Afternoon Coffee", "Commit", "Home").forEach(t -> {
 				Task task = new Task();
 				task.setId(UUID.randomUUID().toString());
-				task.setDesc("Do/Make/Go " + t);
+				task.setDesc("Do/Make/Go/Drink " + t);
 				task.setName(t);
 				task.setStatus(Status.CREATED);
 				task.setDate(new Date());
